@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "602fe684-cffe-4f90-ac97-65787a9f9ad2",
+		"name": "Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth Seller",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}seller/register",
+							"host": [
+								"{{url}}seller"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}seller/register",
+									"host": [
+										"{{url}}seller"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:32:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 23,\n        \"role\": \"seller\",\n        \"username\": \"amrahmed@email.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}seller/login",
+							"host": [
+								"{{url}}seller"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}seller/login",
+									"host": [
+										"{{url}}seller"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:33:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "287"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 23,\n        \"role\": \"seller\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDUzMTM2MDEsInVzZXJfaWQiOjIzfQ.kcmtRrNSORFVIhthQGZHquC69YuDuBl658-Btidm16k\",\n        \"username\": \"amrahmed@email.com\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sellerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"amr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}create/product",
+							"host": [
+								"{{url}}create"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"amr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}create/product",
+									"host": [
+										"{{url}}create"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:35:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 5,\n        \"product_name\": \"amr\",\n        \"seller_id\": 23\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Read Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sellerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}products",
+							"host": [
+								"{{url}}products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}products",
+									"host": [
+										"{{url}}products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:35:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": [\n        {\n            \"amount_available\": 150,\n            \"cost\": 100,\n            \"id\": 5,\n            \"product_name\": \"amr\",\n            \"seller_id\": 23\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sellerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}product/7",
+							"host": [
+								"{{url}}product"
+							],
+							"path": [
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}product/7",
+									"host": [
+										"{{url}}product"
+									],
+									"path": [
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:46:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"product_deleted\",\n    \"payload\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Read Single Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sellerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}product/8",
+							"host": [
+								"{{url}}product"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read Single Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}product/8",
+									"host": [
+										"{{url}}product"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:47:20 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 8,\n        \"product_name\": \"amr\",\n        \"seller_id\": 23\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sellerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"fekrhy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}product/8",
+							"host": [
+								"{{url}}product"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"fekrhy\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}product/8",
+									"host": [
+										"{{url}}product"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:47:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 8,\n        \"product_name\": \"fekrhy\",\n        \"seller_id\": 23\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth Buyer",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}buyer/register",
+							"host": [
+								"{{url}}buyer"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}buyer/register",
+									"host": [
+										"{{url}}buyer"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 15:49:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 24,\n        \"role\": \"buyer\",\n        \"username\": \"amrahmedbuyer@email.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}buyer/login",
+							"host": [
+								"{{url}}buyer"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Exposed APIs",
+			"item": [
+				{
+					"name": "List of products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}buyer/products",
+							"host": [
+								"{{url}}buyer"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List of products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}buyer/products",
+									"host": [
+										"{{url}}buyer"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 16:01:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": [\n        {\n            \"amount_available\": 150,\n            \"cost\": 100,\n            \"id\": 8,\n            \"product_name\": \"fekrhy\",\n            \"seller_id\": 23\n        },\n        {\n            \"amount_available\": 150,\n            \"cost\": 100,\n            \"id\": 9,\n            \"product_name\": \"amr\",\n            \"seller_id\": 23\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}buyer/product/8",
+							"host": [
+								"{{url}}buyer"
+							],
+							"path": [
+								"product",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Single Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}buyer/product/8",
+									"host": [
+										"{{url}}buyer"
+									],
+									"path": [
+										"product",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 16:01:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 8,\n        \"product_name\": \"fekrhy\",\n        \"seller_id\": 23\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
