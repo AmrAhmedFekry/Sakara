@@ -17,16 +17,40 @@ Locale : ar|en
 
 # API 
 
-| Route                        | Request Method | Parameters | Response  |
-| -----------                  | -----------    |----------- |---------- |
-| seller/register            | POST           |  [Register Parameters](#Register)|[Response](#Response)|
-| seller/login | POST           |[Login Parameters](#Login)|  [Response](#Response)         |
-|buyer/register         | POST           |  [Login Parameters](#Login) |[Response](#Response)         |
-|buyer/login      |POST           |  [Register Parameters](#Register)|[Response](#Response)     |
-|buy              |POST           |  [Buy Parameters](#Buy)|[Response](#Response)     |
+| Route                        | Request Method | Parameters | Response  | AUTH Token|
+| -----------                  | -----------    |----------- |---------- |----------           |
+| seller/register            | POST           |  [Register Parameters](#Register)|[Response](#Response)| False |
+| seller/login | POST           |[Login Parameters](#Login)|  [Response](#Response)         | False |
+|buyer/register         | POST           |  [Login Parameters](#Login) |[Response](#Response)         | False|
+|buyer/login      |POST           |  [Register Parameters](#Register)|[Response](#Response)     |       False      |
+|buy              |POST           |  [Buy Parameters](#Buy)|[Response](#Response)     | True (BuyerToken) |
+|create/product              |POST           |  [Create Product Parameters](#CreateProduct)|[Response](#Response)     | True (SellerToken) |
+|product/:id              |PUT           |  [Update Product Parameters](#UpdateProduct)|[Response](#Response)     | True (SellerToken) |
+|product/:id              |GET           |----|[Response](#Response)     | True (SellerToken) |
+|product/:id              |DELETE           |----|[Response](#Response)     | True (SellerToken) |
+|products            |GET           |----|[Response](#Response)     | True (SellerToken) |
 
 
 
+# <a name="CreateProduct"> </a> Create Product 
+
+```json
+{
+    "amount_available" : "int",
+    "cost" : "float",
+    "product_name" : "String"
+} 
+```
+
+# <a name="UpdateProduct"> </a> Update Product 
+
+```json
+{
+    "amount_available" : "int",
+    "cost" : "float",
+    "product_name" : "String"
+} 
+```
 
 
 # <a name="Buy"> </a> Buy 
