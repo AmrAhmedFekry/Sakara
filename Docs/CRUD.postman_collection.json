@@ -12,10 +12,16 @@
 					"name": "Register",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en`",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+							"raw": "{\r\n    \"username\" : \"apple@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 2000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -40,7 +46,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+									"raw": "{\r\n    \"username\" : \"apple@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 2000\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -67,15 +73,15 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 19 Feb 2022 15:32:28 GMT"
+									"value": "Sat, 19 Feb 2022 22:48:29 GMT"
 								},
 								{
 									"key": "Content-Length",
-									"value": "129"
+									"value": "125"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 23,\n        \"role\": \"seller\",\n        \"username\": \"amrahmed@email.com\"\n    }\n}"
+							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"deposit\": 2000,\n        \"id\": 3,\n        \"role\": \"seller\",\n        \"username\": \"apple@email.com\"\n    }\n}"
 						}
 					]
 				},
@@ -83,10 +89,16 @@
 					"name": "Login",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"apple@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,7 +123,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\" : \"amrahmed@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+									"raw": "{\r\n    \"username\" : \"apple@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -138,15 +150,15 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 19 Feb 2022 15:33:21 GMT"
+									"value": "Sat, 19 Feb 2022 22:49:17 GMT"
 								},
 								{
 									"key": "Content-Length",
-									"value": "287"
+									"value": "281"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 23,\n        \"role\": \"seller\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDUzMTM2MDEsInVzZXJfaWQiOjIzfQ.kcmtRrNSORFVIhthQGZHquC69YuDuBl658-Btidm16k\",\n        \"username\": \"amrahmed@email.com\"\n    }\n}"
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"deposit\": 2000,\n        \"id\": 3,\n        \"role\": \"seller\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NDUzMzk3NTcsInVzZXJfaWQiOjN9.n-XUjtVKQLeJgy_2nbGCSku5j1iLJ4yWMF8_DGLHv1w\",\n        \"username\": \"apple@email.com\"\n    }\n}"
 						}
 					]
 				}
@@ -174,10 +186,16 @@
 							]
 						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"amr\"\r\n}",
+							"raw": "{\r\n    \"amount_available\" : 5,\r\n    \"cost\" : 2000,\r\n    \"product_name\" : \"Iphone 13\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,7 +220,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"amr\"\r\n}",
+									"raw": "{\r\n    \"amount_available\" : 5,\r\n    \"cost\" : 2000,\r\n    \"product_name\" : \"Iphone 13\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -229,15 +247,15 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 19 Feb 2022 15:35:08 GMT"
+									"value": "Sat, 19 Feb 2022 22:50:50 GMT"
 								},
 								{
 									"key": "Content-Length",
-									"value": "135"
+									"value": "139"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 5,\n        \"product_name\": \"amr\",\n        \"seller_id\": 23\n    }\n}"
+							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"amount_available\": 5,\n        \"cost\": 2000,\n        \"id\": 1,\n        \"product_name\": \"Iphone 13\",\n        \"seller_id\": 3\n    }\n}"
 						}
 					]
 				},
@@ -260,7 +278,13 @@
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}products",
 							"host": [
@@ -322,7 +346,13 @@
 							]
 						},
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}product/7",
 							"host": [
@@ -390,7 +420,13 @@
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}product/8",
 							"host": [
@@ -458,7 +494,13 @@
 							]
 						},
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"amount_available\" : 150,\r\n    \"cost\" : 100,\r\n    \"product_name\" : \"fekrhy\"\r\n}",
@@ -534,10 +576,16 @@
 					"name": "Register",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+							"raw": "{\r\n    \"username\" : \"amrfekry@email.com\",\r\n    \"password\" : \"12345687\",\r\n    \"deposit\"  : 10000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -562,7 +610,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\",\r\n    \"deposit\"  : 1880\r\n}",
+									"raw": "{\r\n    \"username\" : \"amrfekry@email.com\",\r\n    \"password\" : \"12345687\",\r\n    \"deposit\"  : 10000\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -579,25 +627,10 @@
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 19 Feb 2022 15:49:50 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "133"
-								}
-							],
+							"_postman_previewlanguage": null,
+							"header": null,
 							"cookie": [],
-							"body": "{\n    \"code\": 201,\n    \"errors\": null,\n    \"message\": \"created\",\n    \"payload\": {\n        \"deposit\": 1880,\n        \"id\": 24,\n        \"role\": \"buyer\",\n        \"username\": \"amrahmedbuyer@email.com\"\n    }\n}"
+							"body": null
 						}
 					]
 				},
@@ -608,7 +641,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"amrahmedbuyer@email.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"amrfekry@email.com\",\r\n    \"password\" : \"12345687\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -625,7 +658,52 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"amrfekry@email.com\",\r\n    \"password\" : \"12345687\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}buyer/login",
+									"host": [
+										"{{url}}buyer"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 22:54:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"errors\": null,\n    \"message\": \"user_not_found\",\n    \"payload\": null\n}"
+						}
+					]
 				}
 			]
 		},
@@ -689,15 +767,21 @@
 					"name": "Show Single Product",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{url}}buyer/product/8",
+							"raw": "{{url}}buyer/product/1",
 							"host": [
 								"{{url}}buyer"
 							],
 							"path": [
 								"product",
-								"8"
+								"1"
 							]
 						}
 					},
@@ -708,13 +792,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}buyer/product/8",
+									"raw": "{{url}}buyer/product/1",
 									"host": [
 										"{{url}}buyer"
 									],
 									"path": [
 										"product",
-										"8"
+										"1"
 									]
 								}
 							},
@@ -737,6 +821,174 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": {\n        \"amount_available\": 150,\n        \"cost\": 100,\n        \"id\": 8,\n        \"product_name\": \"fekrhy\",\n        \"seller_id\": 23\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Buy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{buyerToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jbGllbnRcL2xvZ2luIiwiaWF0IjoxNjI3NDc0NDEzLCJleHAiOjE2Mjc0NzgwMTMsIm5iZiI6MTYyNzQ3NDQxMywianRpIjoiUUc2VjVUSGpEcDdYcUdaZCIsInN1YiI6MSwicHJ2IjoiZDU1NzgzYTI1NzEyNWFlNTVlMTM4ZjY5NjRkODI3YmY0MzhhY2M4MSJ9.M8O-poUc1pFwAP2ruFw-grOGmTIqrygbXfnuZsWWHt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\": 5,\r\n    \"amount\" : 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}buy",
+							"host": [
+								"{{url}}buy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Buy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 1,\r\n    \"amount\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}buy",
+									"host": [
+										"{{url}}buy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 23:50:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"errors\": null,\n    \"message\": \"success\",\n    \"payload\": \"transaction_success\"\n}"
+						},
+						{
+							"name": "Buy (In case if Buyer have not enough deposit)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 1,\r\n    \"amount\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}buy",
+									"host": [
+										"{{url}}buy"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 23:51:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"errors\": null,\n    \"message\": \"buyer_deposit_is_not_enough\",\n    \"payload\": null\n}"
+						},
+						{
+							"name": "Buy(In case Product not found)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 5,\r\n    \"amount\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}buy",
+									"host": [
+										"{{url}}buy"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Feb 2022 23:52:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"errors\": null,\n    \"message\": \"product_not_found\",\n    \"payload\": null\n}"
 						}
 					]
 				}
