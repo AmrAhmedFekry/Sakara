@@ -41,9 +41,8 @@ func LoginAsSeller(c *gin.Context) {
 	if r.ValidateRequest(Visitors.LoginValidation(user)).FailsValidation() {
 		return
 	}
-
+	// TODO: Check if user already exists should be done in the Validation package
 	r.DB.Where("user_name = ? AND role = ?", user.UserName, "seller").First(&user)
-
 	if user.ID == 0 {
 		r.ResourceNotFound("user")
 		return

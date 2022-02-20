@@ -20,6 +20,7 @@ func RegisterAsBuyer(c *gin.Context) {
 	if r.ValidateRequest(Visitors.RegisterValidation(user)).FailsValidation() {
 		return
 	}
+	// TODO: Check if user already exists should be done in the Validation package
 	r.DB.Where("user_name = ? ", user.UserName).First(&user)
 	if user.ID != 0 {
 		r.BadRequest("user_name_is_already_exits")
