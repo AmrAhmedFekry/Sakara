@@ -8,6 +8,7 @@ import (
 
 	"github.com/bykovme/gotrans"
 	"github.com/gin-gonic/gin"
+	"github.com/subosito/gotenv"
 	"gorm.io/gorm"
 )
 
@@ -19,6 +20,7 @@ type Bootstrap struct {
 
 func (app *Bootstrap) Share() {}
 
+// Run Application
 func app() func() *Bootstrap {
 	return func() *Bootstrap {
 		var app Bootstrap
@@ -28,11 +30,12 @@ func app() func() *Bootstrap {
 		if err != nil {
 			fmt.Println("This is error in loading locale files: ", err.Error())
 		}
-
+		gotenv.Load(".env")
 		return &app
 	}
 }
 
+// Initialize Application closure
 func NewApp() *Bootstrap {
 	app := app()
 	return app()

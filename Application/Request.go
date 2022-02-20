@@ -54,7 +54,7 @@ func NewRequest(c *gin.Context) *Request {
 	return request(c)
 }
 
-// Init new request closure
+// Init new request closure with auth middleware
 func NewRequestWithAuth(c *gin.Context) *Request {
 	return NewRequest(c).Auth()
 }

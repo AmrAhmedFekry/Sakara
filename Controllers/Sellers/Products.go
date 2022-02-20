@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Create new product and authenticated seller id
+// Create new product
 func CreateProduct(c *gin.Context) {
 	r := Application.NewRequestWithAuth(c)
 
@@ -30,7 +30,7 @@ func CreateProduct(c *gin.Context) {
 	r.Created(Resources.ProductResource(product))
 }
 
-// Update Product by id and authenticated seller id
+// Update Product by id
 func UpdateProduct(c *gin.Context) {
 	r := Application.NewRequestWithAuth(c)
 	if r.IsSeller == false {
@@ -45,7 +45,7 @@ func UpdateProduct(c *gin.Context) {
 		r.ResourceNotFound("product")
 		return
 	}
-
+	// Check if authenticated user is seller of this product
 	if product.SellerID != r.User.ID {
 		r.NotAuth()
 		return
@@ -60,7 +60,7 @@ func UpdateProduct(c *gin.Context) {
 	r.Success(Resources.ProductResource(product))
 }
 
-// Delete Product by id and by authenticated seller id
+// Delete Product by id
 func DeleteProduct(c *gin.Context) {
 	r := Application.NewRequestWithAuth(c)
 	if r.IsSeller == false {
@@ -75,6 +75,8 @@ func DeleteProduct(c *gin.Context) {
 		r.ResourceNotFound("product")
 		return
 	}
+
+	// Check if authenticated user is seller of this product
 	if product.SellerID != r.User.ID {
 		r.NotAuth()
 		return
@@ -83,7 +85,7 @@ func DeleteProduct(c *gin.Context) {
 	r.ProductDeleted()
 }
 
-// Show Single Product by id and by authenticated seller id
+// Show Single Product by id
 func ShowProduct(c *gin.Context) {
 	r := Application.NewRequestWithAuth(c)
 

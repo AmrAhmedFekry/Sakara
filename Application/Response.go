@@ -24,7 +24,7 @@ func (req Request) BadRequest(err interface{}) {
 	req.Response(422, buildResponse(nil, gotrans.T("validation_error"), 401, err))
 }
 
-// return resource not response
+// return resource not found response
 func (req Request) ResourceNotFound(resourceName string) {
 	req.Response(404, buildResponse(nil, gotrans.T(resourceName+"_not_found"), 404, nil))
 }
@@ -34,19 +34,9 @@ func (req Request) ProductDeleted() {
 	req.Response(200, buildResponse(nil, gotrans.T("product_deleted"), 200, nil))
 }
 
-// return resource already exits
-func (req Request) ResourceAlreadyExists(resourceName string) {
-	req.Response(409, buildResponse(nil, gotrans.T(resourceName+"_is_already_exits"), 409, nil))
-}
-
-// return error response with product not available
-func (req Request) AmountNotAvailable(resourceName string) {
-	req.Response(404, buildResponse(nil, gotrans.T(resourceName+"_quantity_is_not_enough"), 404, nil))
-}
-
-// return error response if buyer balance is not enough
-func (req Request) BuyerDepositNotEnough(resourceName string) {
-	req.Response(404, buildResponse(nil, gotrans.T(resourceName+"_deposit_is_not_enough"), 404, nil))
+// return json response with custom code and message
+func (req Request) CustomResponse(key string, code int) {
+	req.Response(code, buildResponse(nil, gotrans.T(key), code, nil))
 }
 
 // standardization our response

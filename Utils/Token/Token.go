@@ -11,6 +11,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+/**
+	File for dealing with token
+**/
+
+// Generate User Token based on user id
 func GenerateToken(user_id uint) (string, error) {
 	token_lifespan, err := strconv.Atoi(os.Getenv("TOKEN_HOUR_LIFESPAN"))
 
@@ -27,6 +32,7 @@ func GenerateToken(user_id uint) (string, error) {
 	return token.SignedString([]byte(os.Getenv("API_SECRET")))
 }
 
+// Validate user token
 func TokenValid(c *gin.Context) error {
 	tokenString := ExtractToken(c)
 	_, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
@@ -41,6 +47,7 @@ func TokenValid(c *gin.Context) error {
 	return nil
 }
 
+// Extract token from request
 func ExtractToken(c *gin.Context) string {
 	token := c.Query("token")
 	if token != "" {
@@ -53,6 +60,7 @@ func ExtractToken(c *gin.Context) string {
 	return ""
 }
 
+// Get User id from token
 func ExtractTokenID(c *gin.Context) (uint, error) {
 
 	tokenString := ExtractToken(c)

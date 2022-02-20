@@ -7,6 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Use go faker to seed data
 func seedUsers(DB *gorm.DB) {
 	DB.Create(&Models.User{
 		UserName: gofakeit.Username(),

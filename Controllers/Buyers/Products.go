@@ -35,22 +35,22 @@ func Buy(c *gin.Context) {
 	}
 	// Check if the amount is available
 	if product.AmountAvailable < jsonData.Amount {
-		r.AmountNotAvailable("product")
+		r.CustomResponse(gotrans.T("product_not_available"), 400)
 		return
 	}
 	var Buyer Models.User
 	r.DB.Where("id = ?", r.User.ID).First(&Buyer)
-	productAmount := float32(jsonData.Amount) * product.Cost
+	productAmountCost := float32(jsonData.Amount) * product.Cost
 	// Check if the total price is available in buyer deposit
-	if Buyer.Deposit < float64(productAmount) {
-		r.BuyerDepositNotEnough("buyer")
+	if Buyer.Deposit < float64(productAmountCost) {
+		r.CustomResponse(gotrans.T("insufficient_balance"), 400)
 		return
 	}
 
 	product.AmountAvailable -= jsonData.Amount
 	r.DB.Save(&product)
 
-	Buyer.Deposit -= float64(productAmount)
+	Buyer.Deposit -= float64(productAmountCost)
 	r.DB.Save(&Buyer)
 
 	r.Success(gotrans.T("transaction_success"))

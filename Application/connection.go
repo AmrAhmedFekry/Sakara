@@ -9,6 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Create new connection
 func makeConnection() *gorm.DB {
 
 	dsn := os.Getenv("DATABASE_USER_NAME") + ":" + os.Getenv("DATABASE_PASSWORD") + "@tcp(" + os.Getenv("DATABASE_HOST") + ":" + os.Getenv("DATABASE_PORT") + ")/" + os.Getenv("DATABASE_NAME") + "?charset=utf8mb4&parseTime=True&loc=Local"

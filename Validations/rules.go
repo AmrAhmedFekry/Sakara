@@ -8,6 +8,10 @@ import (
 	"github.com/go-ozzo/ozzo-validation/is"
 )
 
+/*
+	Set your own validation rules here to accessable from your controller
+*/
+
 func RequiredRule() validation.Rule {
 	return validation.Required.Error(gotrans.T("required"))
 }

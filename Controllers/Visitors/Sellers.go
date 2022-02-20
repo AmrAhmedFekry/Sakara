@@ -22,7 +22,7 @@ func RegisterAsSeller(c *gin.Context) {
 	}
 	r.DB.Where("user_name = ?", user.UserName).First(&user)
 	if user.ID != 0 {
-		r.ResourceAlreadyExists("user_name")
+		r.BadRequest("user_name_is_already_exits")
 		return
 	}
 	user.Role = "seller"

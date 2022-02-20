@@ -14,6 +14,7 @@ func ListOfProducts(c *gin.Context) {
 
 	var products []Models.Product
 	r.DB.Find(&products)
+	// Use Of resource to return only required fields to show
 	r.Success(Resources.ProductsResource(products))
 }
 
