@@ -1,6 +1,7 @@
 package Routes
 
 import (
+	"GoGin/Controllers/Buyers"
 	"GoGin/Controllers/Sellers"
 )
 
@@ -14,6 +15,7 @@ func (app RouterApp) productRoutes() {
 	app.Gin.GET("/api/products", Sellers.ListProducts)
 }
 
-// func (app RouterApp) buyerRoutes() {
-// 	app.Gin.POST("/api/buy", Buyers.Buy)
-// }
+// This routes only available for authenticated users with type buyer
+func (app RouterApp) buyerRoutes() {
+	app.Gin.POST("/api/buy", Buyers.Buy)
+}

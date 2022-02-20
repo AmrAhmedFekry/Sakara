@@ -9,4 +9,5 @@ type RouterApp struct {
 func (app RouterApp) Routing() {
 	app.ExposedRoutes()
 	app.productRoutes()
+	app.buyerRoutes()
 }

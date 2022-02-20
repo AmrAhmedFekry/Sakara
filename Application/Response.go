@@ -39,6 +39,16 @@ func (req Request) ResourceAlreadyExists(resourceName string) {
 	req.Response(409, buildResponse(nil, gotrans.T(resourceName+"_is_already_exits"), 409, nil))
 }
 
+// return error response with product not available
+func (req Request) AmountNotAvailable(resourceName string) {
+	req.Response(404, buildResponse(nil, gotrans.T(resourceName+"_quantity_is_not_enough"), 404, nil))
+}
+
+// return error response if buyer balance is not enough
+func (req Request) BuyerDepositNotEnough(resourceName string) {
+	req.Response(404, buildResponse(nil, gotrans.T(resourceName+"_deposit_is_not_enough"), 404, nil))
+}
+
 // standardization our response
 func buildResponse(payload interface{}, message string, code int, err interface{}) map[string]interface{} {
 	response := make(map[string]interface{})
