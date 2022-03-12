@@ -12,7 +12,7 @@ func main() {
 	// migrate models
 	app.Migrate()
 	// Seed data
-	// app.Seed()
+	app.Seed()
 
 	// Close Application connection
 	Application.CloseConnection(app)

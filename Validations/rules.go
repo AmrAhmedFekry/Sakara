@@ -27,7 +27,3 @@ func Email() validation.Rule {
 func NumericValue() validation.Rule {
 	return validation.Match(regexp.MustCompile("^[0-9]{5}$")).Error(gotrans.T("numeric"))
 }
-
-func InRoles() validation.Rule {
-	return validation.In("seller", "buyer").Error(gotrans.T("role"))
-}
