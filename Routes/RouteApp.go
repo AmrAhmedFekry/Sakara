@@ -8,4 +8,5 @@ type RouterApp struct {
 
 // Set your routes here
 func (app RouterApp) Routing() {
+	app.ExposedRoutes()
 }

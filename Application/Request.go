@@ -22,8 +22,6 @@ type Request struct {
 	Connection      *sql.DB
 	User            *Models.User
 	IsAuth          bool
-	IsSeller        bool
-	IsBuyer         bool
 	Lang            string
 	ValidationError error
 }
@@ -78,22 +76,11 @@ func RequestAuth(c *gin.Context) (*Request, bool) {
 // Find user by token and set user to request
 func (req *Request) Auth() *Request {
 	req.IsAuth = false
-	req.IsSeller = false
-	req.IsBuyer = false
 	isTokenValid := Middlewares.IsAuth(req.Context)
 	if isTokenValid {
 		userId, _ := Token.ExtractTokenID(req.Context)
 		req.DB.Where("id = ?", userId).First(&req.User)
-		if req.User.ID != 0 {
-			req.IsAuth = true
-			if req.User.Role == "seller" {
-				req.IsSeller = true
-			}
-			if req.User.Role == "buyer" {
-				req.IsBuyer = true
-			}
-		}
-
+		req.IsAuth = true
 	}
 	return req
 }
